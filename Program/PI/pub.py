@@ -116,8 +116,8 @@ def generate_sensor_data():
     hum = random.randint(60, 90)
     pre = random.randint(1000, 1120)
 
-def predict(temp_float, hum_float):
-    input = np.array([[temp_float, hum_float]])
+def predict(temp_float, hum_float, pre_float):
+    input = np.array([[temp_float, hum_float, pre_float]])
     pred = model2.predict_classes(input)
     suggestion = 0
 
@@ -194,7 +194,7 @@ try:
         prediction = predict(temp_float, hum_float, pre_float)
         instuction = check_temp(temp_float, temp)
 
-        print(prediction)
+        # print(prediction)
 
         sensor = {
             "temp": temp,
